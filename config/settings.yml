@@ -1,0 +1,8 @@
+acuity:
+  api_key: <%= ENV.fetch("ACUITY_USERNAME", "default_acuity_username") %>
+  api_secret: <%= ENV.fetch("ACUITY_PASSWORD", "default_acuity_password") %>
+  owner: <%= ENV.fetch("ACUITY_OWNER", "default_acuity_owner") %>
+  fields:
+    care_case_id:
+      form_id: <%= ENV.fetch("ACUITY_CARE_CASE_FORM_ID", 0) %>
+      field_id: <%= ENV.fetch("ACUITY_CARE_CASE_FIELD_ID", 0) %>
