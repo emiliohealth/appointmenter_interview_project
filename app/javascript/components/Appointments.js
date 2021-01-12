@@ -1,5 +1,4 @@
 import React from "react";
-import format from "date-fns/format";
 
 class Appointments extends React.Component {
   render () {
@@ -18,14 +17,17 @@ const Appointment = ({
   id,
   name,
   start_time
-  }) => {
-    return (
-      <div class="rounded border-solid border border-black mb-4 p-4">
-      Time: {format(new Date(start_time), "yyyy-MM-dd hh:mm a")}
-      <br />
-      Name: {name}
-      </div>
-    );
-  }
+}) => {
+  const time = new Date(start_time).toISOString();
+  const displayTime = `${time.substr(0, 10)}`
 
-export default Appointments
+  return (
+    <div id={id} className="p-4 mb-4 border border-black border-solid rounded">
+    Date: {displayTime}
+    <br />
+    Name: {name}
+    </div>
+  );
+}
+
+export default Appointments;
